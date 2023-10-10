@@ -1,0 +1,127 @@
+body,
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+
+a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#header {
+  /* pra somar 1rem com 70px, use border-box: box-sizing */
+  box-sizing: border-box;
+  height: 70px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e7e7e7;
+}
+
+#menu {
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+}
+
+#menu a {
+  display: block;
+  padding: 0.5rem;
+}
+
+/*Só vai aparecer quando eu quiser */
+#btn-mobile {
+  display: none;
+}
+
+/* tudo que for menor que 600px */
+@media (max-width: 600px) {
+  /* pra facilitar o estilo, qualqure coisa tire o display none que fica mais visual pra codar */
+  #menu {
+    /* display: none; */
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    right: 0px;
+    background-color: #e7e7e7;
+    /* pra tirar o scroll da pagina */
+    height: 0px;
+    /*  para o transition ocorra o elemtento tem que existir na tela, ou seja  o display none é inviável */
+    transition: 0.6s;
+    z-index: 1000;
+    /* em vez de usar o display:none, use o display visibilty */
+
+    /* hidden = escondido */
+    visibility: hidden;
+
+    /* Ela determina como o conteúdo que não cabe verticalmente dentro de um contêiner deve ser tratado. */
+    overflow-y: hidden;
+  }
+
+  /* quando #nav tiver .active, ele fala com menu pra aparecer dnv */
+  #nav.active #menu {
+    /* display: flex; */
+    height: calc(100vh - 70px);
+    visibility: visible;
+    overflow-y: auto;
+  }
+  #menu a {
+    padding: 1rem 0;
+    margin: 0 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  }
+
+  #btn-mobile {
+    /* vai usar por que vai ter um icone do lado alinhado */
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  #hamburger {
+    border-top: 2px solid;
+    width: 20px;
+  }
+  #hamburger::after,
+  #hamburger::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    /* currentColor pega acor do pai */
+    background-color: currentColor;
+    margin-top: 5px;
+    transition: 0.3s;
+    position: relative;
+  }
+
+  #nav.active #hamburger {
+    border-top-color: transparent;
+  }
+
+  #nav.active #hamburger::before {
+    transform: rotate(135deg);
+  }
+
+  #nav.active #hamburger::after {
+    transform: rotate(-135deg);
+    top: -6.5px;
+  }
+}

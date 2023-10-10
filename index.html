@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>menu</title>
+</head>
+
+<body>
+  <!-- ARIA  -->
+  <header id="header">
+    <a id="logo" href="">Sinapse</a>
+
+    <nav id="nav">
+      <!-- ARIA NO BUTTON -->
+      <!-- dizendo que aria-controls controla menu -->
+
+      <!-- aria-haspopup - verifica se o elemento na intereação do elemento, abre outro. -->
+      <!-- Aria-label = vai entiqueta como abrir menu -->
+      <button id="btn-mobile" aria-label="Abrir menu" aria-haspopup="true" aria-controls="menu" aria-expanded="false">Menu <!-- valor inicial falso por que não ta clicado -->
+        <span id="hamburger"></span></button>
+
+      <ul id="menu" role="menu">
+        <li><a href="/">Sobre</a></li>
+        <li><a href="/">Produtos</a></li>
+        <li><a href="/">Portifólio</a></li>
+        <li><a href="/">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <script src="/script.js"></script>
+</body>
+
+</html>
